@@ -26,7 +26,7 @@ public class CustomPurchasedItemAdapter extends ArrayAdapter<String> {
 
     public CustomPurchasedItemAdapter(Context context, Activity activity, ArrayList<String> piname,ArrayList<String> piqty,
             ArrayList<String> pirate, ArrayList<String> piamount) {
-        super(context, R.layout.listviewlayout, piname);
+        super(context, R.layout.orderslistviewlayout, piname);
         this.context = context;
         this.piname=piname;
         this.piqty=piqty;

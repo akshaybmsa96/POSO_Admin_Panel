@@ -10,11 +10,6 @@
             app:showAsAction="withText"
             android:title="Call" />
 
-        <item
-            android:id="@+id/clearorder"
-            android:icon="@mipmap/ic_action2"
-            app:showAsAction="never"
-            android:title="Order Clear " />
 
         <item
             android:id="@+id/resend"

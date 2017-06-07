@@ -25,14 +25,14 @@ public class OrdersDTO {
     private String extra_charge_name;
     private int tax_amount;
     private int sales_status;
-    private int created_at;
+    private Long created_at;
     private int dispatched_sub_total;
     private Boolean is_challan_uploaded;
     private Double final_amount;
     private Double invoiced_sub_total;
     private Double amount;
     private ActionValueDTO action;
-    private int delivery_date;
+    private Long delivery_date;
     private Double final_sub_total;
 
     public String getSales_status_name() {
@@ -195,11 +195,11 @@ public class OrdersDTO {
         this.sales_status = sales_status;
     }
 
-    public int getCreated_at() {
+    public Long getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(int created_at) {
+    public void setCreated_at(Long created_at) {
         this.created_at = created_at;
     }
 
@@ -251,11 +251,11 @@ public class OrdersDTO {
         this.action = action;
     }
 
-    public int getDelivery_date() {
+    public Long getDelivery_date() {
         return delivery_date;
     }
 
-    public void setDelivery_date(int delivery_date) {
+    public void setDelivery_date(Long delivery_date) {
         this.delivery_date = delivery_date;
     }
 
