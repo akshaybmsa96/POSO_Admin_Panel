@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:title="dot menu"
+        android:icon="@mipmap/ic_dots_white"
+        app:showAsAction="always">
+        <menu>
+
+            <item
+                android:title="Sort By Delivery Date">
+            </item>
+
+            <item
+                android:title="Sort By Amount">
+            </item>
+
+
+            <item
+                android:title="Sort By Order Date">
+            </item>
+
+        </menu>
+
+    </item>
+
+</menu>

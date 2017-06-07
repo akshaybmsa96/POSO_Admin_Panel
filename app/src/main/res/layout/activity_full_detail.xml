@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_full_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.akki.daybox_admin_portal.activity.FullDetail">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbarframe">
+
+        <include android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/toolbar"></include>
+    </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/toolbarframe"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/recbound"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:paddingBottom="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+
+            <TextView
+                android:text="Tanisha Traders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:clickable="true"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:gravity="left"
+                android:layout_alignParentTop="true"
+                android:id="@+id/tname" />
+
+            <TextView
+                android:text="Supplier : "
+                android:layout_width="match_parent"
+                android:textSize="15sp"
+                android:linksClickable="true"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/suppliertextviewid"
+                android:layout_below="@+id/tname"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.25dp"
+                android:background="#c0c0c0"
+                android:layout_below="@+id/suppliertextviewid"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="Order Date : "
+                android:layout_width="match_parent"
+                android:textSize="14sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/orderdatetextviewid"
+                android:layout_below="@+id/suppliertextviewid"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="Delivery Date : "
+                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/deliverydatetextviewid"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:background="@drawable/recbound"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:id="@+id/id1"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="Items"
+
+                    android:textSize="20sp"/>
+            </LinearLayout>
+
+
+            <com.example.akki.daybox_admin_portal.ui.listview.NonScrollListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+                android:layout_below="@+id/id1"
+                android:layout_marginTop="2dp"
+            android:id="@+id/listviewid"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            />
+
+        </RelativeLayout>
+
+        <RelativeLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/recbound"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:paddingBottom="2dp"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <TextView
+                android:text="0.0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:layout_alignBottom="@+id/textView5"
+                android:layout_alignLeft="@+id/deliverychargetextviewid"
+                android:layout_alignStart="@+id/deliverychargetextviewid"
+                android:id="@+id/taxamounttextviewid"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.25dp"
+                android:layout_marginTop="8dp"
+                android:background="#c0c0c0"
+                android:layout_below="@+id/textView5"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="Total : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:id="@+id/textView7"
+                android:layout_below="@+id/textView5"
+                android:layout_alignLeft="@+id/textView5"
+                android:layout_alignStart="@+id/textView5" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:textSize="17sp"
+                android:gravity="right"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:id="@+id/amounttextview"
+                android:layout_alignBottom="@+id/textView7"
+                android:layout_alignLeft="@+id/taxamounttextviewid"
+                android:layout_alignStart="@+id/taxamounttextviewid"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="Sub Total : "
+                android:textSize="15sp"
+                android:id="@+id/textview1"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="ghj"
+                android:textSize="15sp"
+                android:layout_width="180dp"
+                android:gravity="right"
+                android:layout_alignRight="@+id/textview1"
+                android:layout_height="wrap_content"
+                android:id="@+id/subtotaltextviewid"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:text="Delivery Charges : "
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:layout_below="@+id/textview1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="Taxes : "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:id="@+id/textView5"
+                android:layout_below="@+id/textView3"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:text="0.0"
+                android:layout_width="wrap_content"
+                android:textSize="14sp"
+                android:gravity="right"
+                android:layout_height="wrap_content"
+                android:id="@+id/deliverychargetextviewid"
+                android:layout_below="@+id/subtotaltextviewid"
+                android:layout_alignLeft="@+id/subtotaltextviewid"
+                android:layout_alignStart="@+id/subtotaltextviewid"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
