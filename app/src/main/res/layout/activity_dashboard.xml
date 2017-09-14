@@ -1,35 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_dashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.akki.daybox_admin_portal.activity.Dashboard">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/toolbarframe">
-
+        android:id="@+id/home_layout"
+        >
         <include android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             layout="@layout/toolbar"></include>
+
     </FrameLayout>
 
-    <RelativeLayout
+
+    <android.support.v4.widget.DrawerLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbarframe">
+        android:id="@+id/drawer_layout"
+        android:layout_below="@+id/home_layout"
+        android:background="#FFFFFF"
+        tools:openDrawer="start"
 
+        >
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerviewid"
-        android:padding="2dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/home_layout_id"
+            >
+        </FrameLayout>
 
-</RelativeLayout>
+        <android.support.design.widget.NavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/navigator"
+            app:menu="@menu/dashboard_nav_menu"
+            app:headerLayout="@layout/nav_header"
+            android:layout_gravity="start">
+
+        </android.support.design.widget.NavigationView>
+
+    </android.support.v4.widget.DrawerLayout>
+
 </RelativeLayout>

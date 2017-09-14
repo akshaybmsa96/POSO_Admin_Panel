@@ -9,44 +9,37 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.akki.daybox_admin_portal.R;
+import com.example.akki.daybox_admin_portal.pojo.orderdetail.ItemsDTO;
 
 import java.util.ArrayList;
 
 /**
  * Created by Akki on 03-06-2017.
  */
-public class CustomPurchasedItemAdapter extends ArrayAdapter<String> {
+public class CustomPurchasedItemAdapter extends ArrayAdapter<ItemsDTO> {
 
     Context context;
     Activity activity;
-    ArrayList<String> piname;
-    ArrayList<String> piqty;
-    ArrayList<String> pirate;
-    ArrayList<String> piamount;
+    ArrayList<ItemsDTO> items;
 
-    public CustomPurchasedItemAdapter(Context context, Activity activity, ArrayList<String> piname,ArrayList<String> piqty,
-            ArrayList<String> pirate, ArrayList<String> piamount) {
-        super(context, R.layout.orderslistviewlayout, piname);
+    public CustomPurchasedItemAdapter(Context context,Activity activity,ArrayList<ItemsDTO> items) {
+        super(context, R.layout.orderslistviewlayout, items);
         this.context = context;
-        this.piname=piname;
-        this.piqty=piqty;
-        this.pirate=pirate;
-        this.piamount=piamount;
-        this.activity = activity;
+        this.items=items;
+        this.activity=activity;
     }
-
 
 
     public View getView(final int position, View view, ViewGroup parent) {
         LayoutInflater inflater = activity.getLayoutInflater();
         View rowView = inflater.inflate(R.layout.purchase_list_layout, null, true);
-        TextView tv=(TextView)rowView.findViewById(R.id.iname);
-        TextView tv1=(TextView)rowView.findViewById(R.id.quantitytextviewid);
-        TextView tv2=(TextView)rowView.findViewById(R.id.ratetextviewid);
+        TextView textViewItemName=(TextView)rowView.findViewById(R.id.textViewItemName);
+        TextView textViewQuantity=(TextView)rowView.findViewById(R.id.textViewQuantity);
+        TextView textViewRate=(TextView)rowView.findViewById(R.id.textViewRate);
 
-        tv.setText(piname.get(position));
-        tv1.setText(piqty.get(position));
-        tv2.setText("Rate : "+pirate.get(position));
+        textViewItemName.setText(items.get(position).getItem().getName());
+        textViewQuantity.setText(""+items.get(position).getFinal_quantity()+ " " +items.get(position).getItem().getUom());
+        textViewRate.setText("Rate : "+items.get(position).getFinal_rate()+ "/" +items.get(position).getItem().getUom());
 
         return rowView;
     }

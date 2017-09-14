@@ -4,7 +4,7 @@
     android:id="@+id/activity_full_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.akki.daybox_admin_portal.activity.FullDetail">
+    tools:context="com.example.akki.daybox_admin_portal.activity.FullDetailActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -19,6 +19,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_below="@+id/toolbarframe"
+        android:layout_above="@+id/belowLayout"
         android:layout_height="match_parent">
 
     <LinearLayout
@@ -51,35 +52,26 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:gravity="left"
                 android:layout_alignParentTop="true"
-                android:id="@+id/tname" />
+                android:id="@+id/textViewSupplier" />
 
             <TextView
-                android:text="Supplier : "
-                android:layout_width="match_parent"
-                android:textSize="15sp"
+                android:text="By : "
+                android:layout_width="wrap_content"
+                android:textSize="14sp"
                 android:linksClickable="true"
+                android:textColor="@color/black"
                 android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/suppliertextviewid"
-                android:layout_below="@+id/tname"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="0.25dp"
-                android:background="#c0c0c0"
-                android:layout_below="@+id/suppliertextviewid"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:id="@+id/textViewBuyer"
+                android:layout_below="@+id/textViewSupplier" />
 
             <TextView
                 android:text="Order Date : "
                 android:layout_width="match_parent"
                 android:textSize="14sp"
                 android:layout_height="wrap_content"
-                android:id="@+id/orderdatetextviewid"
-                android:layout_below="@+id/suppliertextviewid"
+                android:id="@+id/textViewODate"
+                android:layout_below="@+id/textViewBuyer"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
@@ -89,7 +81,7 @@
                 android:textSize="14sp"
                 android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/deliverydatetextviewid"
+                android:id="@+id/textViewDDate"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
@@ -123,7 +115,7 @@
             android:layout_height="match_parent"
                 android:layout_below="@+id/id1"
                 android:layout_marginTop="2dp"
-            android:id="@+id/listviewid"
+            android:id="@+id/listView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             />
@@ -145,9 +137,9 @@
                 android:textSize="14sp"
                 android:gravity="right"
                 android:layout_alignBottom="@+id/textView5"
-                android:layout_alignLeft="@+id/deliverychargetextviewid"
-                android:layout_alignStart="@+id/deliverychargetextviewid"
-                android:id="@+id/taxamounttextviewid"
+                android:layout_alignLeft="@+id/textViewDeliveryCharge"
+                android:layout_alignStart="@+id/textViewDeliveryCharge"
+                android:id="@+id/textViewTaxAmount"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
 
@@ -167,7 +159,7 @@
                 android:layout_marginTop="15dp"
                 android:textSize="17sp"
                 android:textColor="@color/black"
-                android:id="@+id/textView7"
+                android:id="@+id/textViewAmountText"
                 android:layout_below="@+id/textView5"
                 android:layout_alignLeft="@+id/textView5"
                 android:layout_alignStart="@+id/textView5" />
@@ -178,10 +170,10 @@
                 android:gravity="right"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:id="@+id/amounttextview"
-                android:layout_alignBottom="@+id/textView7"
-                android:layout_alignLeft="@+id/taxamounttextviewid"
-                android:layout_alignStart="@+id/taxamounttextviewid"
+                android:id="@+id/textViewAmount"
+                android:layout_alignBottom="@+id/textViewAmountText"
+                android:layout_alignLeft="@+id/textViewTaxAmount"
+                android:layout_alignStart="@+id/textViewTaxAmount"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
 
@@ -203,7 +195,7 @@
                 android:gravity="right"
                 android:layout_alignRight="@+id/textview1"
                 android:layout_height="wrap_content"
-                android:id="@+id/subtotaltextviewid"
+                android:id="@+id/textViewSubAmount"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
@@ -234,10 +226,10 @@
                 android:textSize="14sp"
                 android:gravity="right"
                 android:layout_height="wrap_content"
-                android:id="@+id/deliverychargetextviewid"
-                android:layout_below="@+id/subtotaltextviewid"
-                android:layout_alignLeft="@+id/subtotaltextviewid"
-                android:layout_alignStart="@+id/subtotaltextviewid"
+                android:id="@+id/textViewDeliveryCharge"
+                android:layout_below="@+id/textViewSubAmount"
+                android:layout_alignLeft="@+id/textViewSubAmount"
+                android:layout_alignStart="@+id/textViewSubAmount"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
         </RelativeLayout>
@@ -245,5 +237,32 @@
     </LinearLayout>
 
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:id="@+id/belowLayout"
+        android:background="#F5F5F5"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_weight="50"
+            android:id="@+id/buttonCancelOrder"
+            android:background="@drawable/recboundcoloredred"
+            android:text="Cancel Order"
+            android:textColor="@color/white"
+            android:layout_height="match_parent" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_weight="50"
+            android:id="@+id/buttonConfirmOrder"
+            android:background="@drawable/recboundcoloredblue"
+            android:text="Confirm Order"
+            android:textColor="@color/white"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>

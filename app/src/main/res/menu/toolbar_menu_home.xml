@@ -10,16 +10,24 @@
         <menu>
 
             <item
-                android:title="Sort By Delivery Date">
+                android:title="Sort By Delivery Date"
+                android:id="@+id/menuSortDeliveryDate">
             </item>
 
             <item
-                android:title="Sort By Amount">
+                android:title="Sort By Amount"
+                android:id="@+id/menuSortAmount">
             </item>
 
 
             <item
-                android:title="Sort By Order Date">
+                android:title="Sort By Order Date"
+                android:id="@+id/menuSortOrderDate">
+            </item>
+
+            <item
+                android:title="All Orders"
+                android:id="@+id/menuAllOrders">
             </item>
 
         </menu>

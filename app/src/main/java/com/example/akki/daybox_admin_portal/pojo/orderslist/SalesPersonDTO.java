@@ -1,4 +1,4 @@
-package com.example.akki.daybox_admin_portal.pojo;
+package com.example.akki.daybox_admin_portal.pojo.orderslist;
 
 /**
  * Created by Akki on 07-06-2017.

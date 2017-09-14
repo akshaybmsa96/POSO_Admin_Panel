@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#1565C0</color>
     <color name="colorAccent">#2196F3</color>
     <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="cancelButtonColor">#D50000</color>
+    <color name="listHeaderColor">#E0E0E0</color>
 </resources>

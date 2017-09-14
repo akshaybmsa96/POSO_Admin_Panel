@@ -11,7 +11,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.akki.daybox_admin_portal.adapter.CustomAllOrdersAdapter;
 import com.example.akki.daybox_admin_portal.adapter.CustomOrdersAdapter;
 import com.example.akki.daybox_admin_portal.global.NetworkConstants;
 import com.example.akki.daybox_admin_portal.pojo.orderslist.OrdersDTO;
@@ -29,36 +28,32 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * Created by Akki on 09-06-2017.
+ * Created by Akki on 07-06-2017.
  */
 
-public class FetchAllOrders implements NetworkConstants {
+public class FetchOrders implements NetworkConstants {
 
     Context context;
     ArrayList<OrdersDTO> orderlist;
-    CustomAllOrdersAdapter ca;
+    CustomOrdersAdapter ca;
     RecyclerView recyclerView;
-    String skip;
-    ProgressDialog pDialog;
 
-    public FetchAllOrders(Context context, ArrayList<OrdersDTO> orderlist, CustomAllOrdersAdapter ca, RecyclerView recyclerView, String skip) {
+    public FetchOrders(Context context, ArrayList<OrdersDTO> orderlist, CustomOrdersAdapter ca, RecyclerView recyclerView) {
 
         this.context=context;
         this.orderlist=orderlist;
         this.ca=ca;
         this.recyclerView =recyclerView;
-        this.skip=skip;
     }
 
-    public void fetchAll()
+    public void fetch()
     {
-        if(skip.equals("0")) {
-            pDialog = new ProgressDialog(context);
-            pDialog.setMessage("Loading...");
-            pDialog.setCancelable(false);
-            pDialog.show();
-        }
-        String url=GeneralUrl+FetchAllOrdersUrl+skip;
+        final ProgressDialog pDialog = new ProgressDialog(context);
+        pDialog.setMessage("Loading...");
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        String url=GeneralUrl+FetchOrdersUrl;
 
         final RequestQueue mRequestQueue= Volley.newRequestQueue(context);
 
@@ -68,7 +63,7 @@ public class FetchAllOrders implements NetworkConstants {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        //     Log.d(TAG, response.toString());
+                       //     Log.d(TAG, response.toString());
                         mRequestQueue.stop();
                         JsonElement jelement= new JsonParser().parse(response.toString());
                         JsonObject j=jelement.getAsJsonObject();
@@ -77,18 +72,11 @@ public class FetchAllOrders implements NetworkConstants {
                         GsonBuilder gsonBuilder=new GsonBuilder();
                         Gson gson=gsonBuilder.create();
                         orderlist.addAll(Arrays.asList(gson.fromJson(j1,OrdersDTO[].class)));
-
-                        if(skip.equals("0")) {
-                            pDialog.hide();
-                            recyclerView.setAdapter(ca);
-                            final StickyRecyclerHeadersDecoration headersDecor = new StickyRecyclerHeadersDecoration(ca);
-                            recyclerView.addItemDecoration(headersDecor);
-                        }
-                        else
-                        {
-                            ca.notifyDataSetChanged();
-                        }
-                        //   Toast.makeText(context,"" +a.get(4).getSales_status_name() + "",Toast.LENGTH_SHORT).show();
+                        pDialog.hide();
+                        recyclerView.setAdapter(ca);
+                        final StickyRecyclerHeadersDecoration headersDecor = new StickyRecyclerHeadersDecoration(ca);
+                        recyclerView.addItemDecoration(headersDecor);
+                     //   Toast.makeText(context,"" +a.get(4).getSales_status_name() + "",Toast.LENGTH_SHORT).show();
 
                     }
                 }, new Response.ErrorListener() {
@@ -97,14 +85,11 @@ public class FetchAllOrders implements NetworkConstants {
             public void onErrorResponse(VolleyError error) {
                 // VolleyLog.d(TAG, "Error: " + error.getMessage());
                 // hide the progress dialog
-                if(skip.equals("0")) {
-                    pDialog.hide();
-                }
+                pDialog.hide();
                 mRequestQueue.stop();
                 Toast.makeText(context,error.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
         mRequestQueue.add(jsonObjReq);
     }
-}
-
+    }
